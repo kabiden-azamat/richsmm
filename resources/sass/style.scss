@@ -1,0 +1,135 @@
+/*
+.container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media (min-width: 1000px) {
+    .container {
+        max-width: 1300px;
+    }
+}
+@media (min-width: 768px) and (max-width: 999px) {
+    .container {
+        max-width: 750px;
+    }
+}
+@media (min-width: 320px) and (max-width: 767px) {
+    .container {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+}
+*/
+
+$font-montserrat: 'Montserrat', sans-serif;
+$font-gotham-pro: 'Gotham Pro', sans-serif;
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: $font-montserrat;
+    font-size: 14px;
+}
+
+.wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+header {
+    flex: 0 1;
+    background: white;
+    box-shadow: 1px 1px 30px black;
+}
+
+main {
+    flex: 1 1;
+
+    background: url("../images/bg.png") no-repeat 50%;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.logo {
+    background: url("../images/logo.png") no-repeat 50%;
+    background-size: cover;
+    width: 187px;
+    height: 120px;
+}
+
+.menu_row {
+    display: grid;
+    grid-template-columns: 187px 1fr;
+
+    ul.nav_menu {
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        li {
+            display: inline-block;
+            margin-right: 15px;
+            &:last-child {
+                margin-right: 0;
+            }
+            a {
+                color: rgb(0, 0, 0);
+                display: block;
+                font-size: 19px;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+
+.Box1 {
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    box-shadow: rgb(169, 169, 169) 0px 0px 15px;
+    margin-top: 40px;
+    margin-bottom: 100px;
+    text-align: center;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(212, 212, 212);
+    border-image: initial;
+    border-radius: 10px;
+    padding: 50px 31px;
+    padding-bottom: 60px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.owlz {
+    position: absolute;
+    height: 73px;
+    z-index: 652;
+    left: 50%;
+    margin-left: -37px;
+}
+
+.instagram {
+    display: block;
+    float: left;
+    line-height: 120px;
+    color: white;
+    width: 145px;
+    height: 145px;
+    margin-right: 10px;
+    background-image: url(../images/instagram.png);
+    margin-left: 5px;
+}
