@@ -23,3 +23,19 @@ Route::group([
 ], function() {
     Route::get('/', 'IndexController@index');
 });
+
+/******* Admin *******/
+Route::group([
+    'middleware' => ['web'],
+    'namespace' => 'App\Http\Controllers\\' . config('app.panel_dir'),
+    'prefix' => config('app.panel_prefix')
+], function() {
+    Route::group([
+        'middleware' => ['auth', 'permission:user.permission_admin_panel']
+    ], function() {
+        Route::get('/', 'IndexController@index')->name('admin_home');
+        Route::post('/logout/', 'IndexController@logout')->name('admin_logout');
+    });
+    Route::get('/login/', 'IndexController@login')->name('admin_login')->middleware('guest');
+    Route::post('/auth/', 'IndexController@auth')->name('admin_auth');
+});
