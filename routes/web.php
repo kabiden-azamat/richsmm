@@ -21,7 +21,7 @@ Route::group([
     'middleware' => 'web',
     'namespace' => 'App\Http\Controllers\Index'
 ], function() {
-    Route::get('/', 'IndexController@index');
+    Route::get('/', 'IndexController@index')->name('home');
 });
 
 /******* Admin *******/
