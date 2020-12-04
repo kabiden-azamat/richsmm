@@ -5,7 +5,7 @@ namespace App\Models\Admin;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Services extends Model
+class TargetServices extends Model
 {
     use HasFactory;
 
@@ -16,8 +16,7 @@ class Services extends Model
      */
     protected $fillable = [
         'name',
-        'slug',
-        'icon',
-        'parent_id'
+        'price',
+        'service_id'
     ];
 }

@@ -54,10 +54,13 @@
                 </ul>
             </li>
             <li>
-                <a href="{{ route('admin_logout') }}">
+                <a href="{{ route('admin_logout') }}" onclick="event.preventDefault(); document.getElementById('sidebar_logout_form').submit();">
                     <img src="/admin/images/svg-icon/sidebar-menu/logout.svg" class="svg-icon" alt="">
                     <span>{{ __('user.logout') }}</span>
                 </a>
+                <form id="sidebar_logout_form" action="{{ route('admin_logout') }}" method="post">
+                    {{ csrf_field() }}
+                </form>
             </li>
         </ul>
     </section>

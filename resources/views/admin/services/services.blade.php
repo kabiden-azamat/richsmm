@@ -27,6 +27,9 @@
                                         <td>{{ $item->slug }}</td>
                                         <td><img src="{{ $item->icon }}" alt="{{ $item->name }}" style="width: 16px; height: 16px;"></td>
                                         <td class="text-right">
+                                            <a href="{{ route('admin_services_edit', ['id' => $item->id]) }}" class="btn btn-primary">
+                                                <i class="fa fa-pencil-square-o"></i>
+                                            </a>
                                             <a href="{{ route('admin_services_remove_post', ['id' => $item->id]) }}" onclick="event.preventDefault(); document.getElementById('remove_service_{{ $item->id }}').submit();" class="btn btn-danger">
                                                 <i class="fa fa-trash"></i>
                                             </a>

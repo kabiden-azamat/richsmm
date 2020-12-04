@@ -5,14 +5,11 @@
         <div class="col-lg-12 col-12">
             <div class="box">
                 <div class="box-header with-border">
-                    <h4 class="box-title">Услуга</h4>
+                    <h4 class="box-title">Целевая услуга</h4>
                 </div>
                 <!-- /.box-header -->
-                <form class="form" action="{{ route('admin_services_add_post') }}" enctype="multipart/form-data" method="post">
+                <form class="form" action="{{ route('admin_services_target_add_post', ['id' => $data['id']]) }}" enctype="multipart/form-data" method="post">
                     {{ csrf_field() }}
-                    @if(request()->get('id'))
-                        <input type="hidden" name="parent_id" value="{{ request()->get('id') }}">
-                    @endif
                     <div class="box-body">
                         <h4 class="box-title text-info"><i class="ti-user mr-15"></i> Информация</h4>
                         <hr class="my-15">
@@ -25,18 +22,10 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>ЧПУ (Отображение в адрессной строке)</label>
-                                    <input type="text" name="slug" class="form-control" placeholder="ЧПУ">
+                                    <label>Цена</label>
+                                    <input type="text" name="price" class="form-control" placeholder="Цена">
                                 </div>
                             </div>
-                        </div>
-                        <h4 class="box-title text-info"><i class="ti-save mr-15"></i> Файлы</h4>
-                        <hr class="my-15">
-                        <div class="form-group">
-                            <label>Выберите иконку</label>
-                            <label class="file">
-                                <input type="file" name="icon" id="file">
-                            </label>
                         </div>
                     </div>
                     <!-- /.box-body -->
