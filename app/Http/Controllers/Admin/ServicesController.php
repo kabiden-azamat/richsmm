@@ -12,7 +12,7 @@ class ServicesController extends Controller
 {
     public function index()
     {
-        $data = Services::paginate(15);
+        $data = Services::where('parent_id', null)->paginate(15);
         return view('admin.services.services')->with([
             'title' => 'Список услуг',
             'data' => $data,
