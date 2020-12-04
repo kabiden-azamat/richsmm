@@ -35,6 +35,10 @@ Route::group([
     ], function() {
         Route::get('/', 'IndexController@index')->name('admin_home');
         Route::post('/logout/', 'IndexController@logout')->name('admin_logout');
+        Route::get('/services', 'ServicesController@index')->name('admin_services');
+        Route::get('/services/add', 'ServicesController@add')->name('admin_services_add');
+        Route::post('/services/add', 'ServicesController@add_item')->name('admin_services_add_post');
+        Route::post('/services/remove/{id}', 'ServicesController@remove_item')->name('admin_services_remove_post');
     });
     Route::get('/login/', 'IndexController@login')->name('admin_login')->middleware('guest');
     Route::post('/auth/', 'IndexController@auth')->name('admin_auth');

@@ -17,7 +17,10 @@ class IndexController extends Controller
 
     public function index()
     {
-        return view('admin.index.index');
+        $breadcrumbs = [
+            ['name' => 'Главная', 'active' => true]
+        ];
+        return view('admin.index.index')->with(['title' => 'Главная', 'breadcrumbs' => $breadcrumbs]);
     }
 
     public function login()
@@ -28,13 +31,13 @@ class IndexController extends Controller
     protected function auth(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'username' => ['required', 'string', 'min:3', 'max:255'],
-            'password' => ['required', 'string', 'min:8', 'max:255'],
+            'email' => ['required', 'string', 'min:3', 'max:255'],
+            'password' => ['required', 'string', 'min:6', 'max:255'],
         ]);
         if($validator->fails())
             return redirect()->back()->withInput()->withErrors($validator->errors());
 
-        $userdata = $request->only(['username', 'password']);
+        $userdata = $request->only(['email', 'password']);
         if(!Auth::guard()->attempt($userdata, $request->get('remember_me')))
             return redirect()->back()->withInput()->withErrors('Неверный логин или пароль!');
 
